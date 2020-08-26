@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import NavBar from "./Components/NavBar";
+import Brewery from "./Components/Brewery";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      breweries: [],
+      searchBar: "",
+    };
+  }
+  componentDidMount() {
+    this.fetchBreweries();
+  }
+
+  fetchBreweries() {
+    fetch("https://api.openbrewerydb.org/breweries/54")
+      .then((res) => res.json())
+      .then((breweries) => this.setState({ breweries }));
+  }
+  searchBreweries() {
+    const searchURL = "https://api.openbrewerydb.org/breweries/search?query=";
+  }
+  render() {
+    return (
+      <div className="container">
+        <header className="center">
+          <h1>Breweries</h1>
+          <NavBar />
+        </header>
+        <main>
+          <Brewery breweries={this.state.breweries} />;
+        </main>
+      </div>
+    );
+  }
 }
-
 export default App;
