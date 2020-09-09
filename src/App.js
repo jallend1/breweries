@@ -15,22 +15,33 @@ class App extends React.Component {
   }
 
   fetchBreweries() {
-    fetch("https://api.openbrewerydb.org/breweries/54")
+    let url = "https://api.openbrewerydb.org/breweries/";
+    if (this.state.searchBar.length) {
+      url += `/search?query=${this.state.searchBar}`;
+    }
+    fetch(url)
       .then((res) => res.json())
       .then((breweries) => this.setState({ breweries }));
   }
-  searchBreweries() {
-    const searchURL = "https://api.openbrewerydb.org/breweries/search?query=";
-  }
+
+  handleSearch = (e) => {
+    this.setState({ searchBar: e.target.value }, this.fetchBreweries());
+  };
+
+  searchBreweries() {}
   render() {
     return (
       <div className="container">
         <header className="center">
           <h1>Breweries</h1>
-          <NavBar />
+          <NavBar handleSearch={this.handleSearch} />
         </header>
         <main>
-          <Brewery breweries={this.state.breweries} />;
+          {this.state.breweries.length
+            ? this.state.breweries.map((brewery) => (
+                <Brewery brewery={brewery} key={brewery.id} />
+              ))
+            : null}
         </main>
       </div>
     );

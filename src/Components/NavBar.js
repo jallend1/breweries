@@ -20,7 +20,7 @@ const NavBar = (props) => {
       </nav>
       <div className="input-field">
         <i className="material-icons prefix">search</i>
-        <input id="search" type="text"></input>
+        <input id="search" type="text" onChange={props.handleSearch}></input>
         <label className="label-icon active"></label>
       </div>
     </>

@@ -2,19 +2,17 @@ import React from "react";
 
 class Brewery extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <>
         <div className="card">
-          <div className="card-title">{this.props.breweries.name}</div>
-          <div className="card-content">
+          <div className="card-title center">{this.props.brewery.name}</div>
+          <div className="card-content center">
             <div>
               <p>
-                Location: {this.props.breweries.city},{" "}
-                {this.props.breweries.state}
+                Location: {this.props.brewery.city}, {this.props.brewery.state}
               </p>
-              <a href={this.props.breweries.website_url}>
-                {this.props.breweries.website_url}
+              <a href={this.props.brewery.website_url}>
+                {this.props.brewery.website_url}
               </a>
             </div>
           </div>
