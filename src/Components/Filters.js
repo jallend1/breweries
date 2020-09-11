@@ -6,18 +6,25 @@ const Filters = (props) => {
       <form onSubmit={props.handleSubmit}>
         <div className="input-field">
           <i className="material-icons prefix">search</i>
-          <input id="search" type="text" onChange={props.handleFilter}></input>
+          <input
+            id="search"
+            type="text"
+            onChange={props.handleSearch}
+            placeholder="Search for brewery by name..."
+          ></input>
           <label className="label-icon active"></label>
         </div>
-        <div className="input-field">
-          <label htmlFor="state">Limit to State</label>
+        {/* <div className="input-field">
+          <span>
+            <label htmlFor="state">Limit to State</label>
+          </span>
           <select
             id="state"
             name="state"
             className="browser-default"
             onChange={props.handleFilter}
           >
-            <option value="---">---</option>
+            <option value="All">All</option>
             <option value="Alabama">Alabama</option>
             <option value="Alaska">Alaska</option>
             <option value="Arizona">Arizona</option>
@@ -73,7 +80,7 @@ const Filters = (props) => {
             <option value="Wisconsin">Wisconsin</option>
             <option value="Wyoming">Wyoming</option>
           </select>
-        </div>
+        </div> */}
       </form>
     </>
   );

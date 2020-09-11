@@ -7,14 +7,26 @@ class Brewery extends React.Component {
         <div className="card">
           <div className="card-title center">{this.props.brewery.name}</div>
           <div className="card-content center">
-            <div>
+            <div className="location">
               <p>
-                Location: {this.props.brewery.city}, {this.props.brewery.state}
+                <strong>Location:</strong> {this.props.brewery.city},{" "}
+                {this.props.brewery.state}
               </p>
-              <a href={this.props.brewery.website_url}>
-                {this.props.brewery.website_url}
-              </a>
+              <p>
+                <strong>Street address:</strong> {this.props.brewery.street}
+              </p>
+              <p>
+                <strong>ZIP Code:</strong> {this.props.brewery.postal_code}
+              </p>
             </div>
+            <a href={this.props.brewery.website_url}>
+              {this.props.brewery.website_url}
+            </a>
+            <p>
+              <strong>Phone Number:</strong>
+              {this.props.brewery.phone}
+            </p>
+            <p>Brewery ID: {this.props.brewery.id}</p>
           </div>
         </div>
       </>
