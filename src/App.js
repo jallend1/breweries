@@ -1,6 +1,8 @@
 import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Filters from "./Components/Filters";
+import BreweryCard from "./Components/BreweryCard";
 import Brewery from "./Components/Brewery";
 
 class App extends React.Component {
@@ -45,23 +47,33 @@ class App extends React.Component {
   searchBreweries() {}
   render() {
     return (
-      <div className="container">
-        <header className="center">
-          <h1>Breweries</h1>
-          <NavBar />
-          <Filters
-            handleSearch={this.handleSearch}
-            handleSubmit={this.handleSubmit}
-          />
-        </header>
-        <main>
-          {this.state.breweries.length
-            ? this.state.breweries.map((brewery) => (
-                <Brewery brewery={brewery} key={brewery.id} />
-              ))
-            : null}
-        </main>
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <header className="center">
+            <h1>Breweries</h1>
+            <NavBar />
+            <Filters
+              handleSearch={this.handleSearch}
+              handleSubmit={this.handleSubmit}
+            />
+          </header>
+          <main>
+            <Route exact path="/breweries">
+              {this.state.breweries.length
+                ? this.state.breweries.map((brewery) => (
+                    <BreweryCard brewery={brewery} key={brewery.id} />
+                  ))
+                : null}
+            </Route>
+            <Route path="/breweries/:id">
+              <Brewery />
+            </Route>
+            <Route exact path="/">
+              <p>Home Page!</p>
+            </Route>
+          </main>
+        </div>
+      </BrowserRouter>
     );
   }
 }
