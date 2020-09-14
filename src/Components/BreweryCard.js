@@ -7,7 +7,12 @@ class Brewery extends React.Component {
       <>
         <div className="card">
           <div className="card-title center">
-            <Link to={`/breweries/${this.props.brewery.id}`}>
+            <Link
+              to={{
+                pathname: `/breweries/${this.props.brewery.id}}`,
+                state: this.props.brewery,
+              }}
+            >
               {this.props.brewery.name}
             </Link>
           </div>

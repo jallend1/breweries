@@ -65,9 +65,10 @@ class App extends React.Component {
                   ))
                 : null}
             </Route>
-            <Route path="/breweries/:id">
-              <Brewery />
-            </Route>
+            <Route
+              path="/breweries/:id"
+              render={(props) => <Brewery {...props} />}
+            ></Route>
             <Route exact path="/">
               <p>Home Page!</p>
             </Route>
