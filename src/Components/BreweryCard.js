@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-class Brewery extends React.Component {
+class BreweryCard extends React.Component {
   render() {
     return (
       <>
@@ -9,8 +9,8 @@ class Brewery extends React.Component {
           <div className="card-title center">
             <Link
               to={{
-                pathname: `/breweries/${this.props.brewery.id}}`,
-                state: this.props.brewery,
+                pathname: `/breweries/${this.props.brewery.id}`,
+                state: this.props.brewery
               }}
             >
               {this.props.brewery.name}
@@ -19,7 +19,7 @@ class Brewery extends React.Component {
           <div className="card-content center">
             <div className="location">
               <p>
-                <strong>Location:</strong> {this.props.brewery.city},{" "}
+                <strong>Location:</strong> {this.props.brewery.city},{' '}
                 {this.props.brewery.state}
               </p>
               <p>
@@ -44,4 +44,4 @@ class Brewery extends React.Component {
   }
 }
 
-export default Brewery;
+export default BreweryCard;

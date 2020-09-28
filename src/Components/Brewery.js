@@ -1,24 +1,11 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import mapboxgl from "mapbox-gl";
+import React from 'react';
+import mapboxgl from 'mapbox-gl';
+import Map from './Map';
 
+mapboxgl.accessToken =
+  'pk.eyJ1IjoiamFsbGVuZDEiLCJhIjoiY2tmM2Nld3hvMDFxbzMwbW4yNGk2c3NybiJ9.n6nnx-xBKBI_1jxp3fxZaA';
 class Brewery extends React.Component {
-  constructor(props) {
-    super(props);
-    this.mapContainer = React.createRef();
-  }
-  componentDidMount() {
-    mapboxgl.accessToken = "";
-    const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [0, 0],
-      zoom: 2,
-    });
-  }
-
   render() {
-    const id = useParams();
     const brewery = this.props.location.state;
     console.log(this.props.location.state);
     return (
@@ -45,7 +32,7 @@ class Brewery extends React.Component {
             </p>
             <p>Brewery ID: {brewery.id}</p>
             <div>
-              <div ref={(el) => (this.mapContainer = el)} />
+              <Map latitude={brewery.latitude} longitude={brewery.longitude} />
             </div>
           </div>
         </div>
