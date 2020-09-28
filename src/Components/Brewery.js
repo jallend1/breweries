@@ -1,16 +1,11 @@
 import React from 'react';
-import mapboxgl from 'mapbox-gl';
 import Map from './Map';
 
-mapboxgl.accessToken =
-  'pk.eyJ1IjoiamFsbGVuZDEiLCJhIjoiY2tmM2Nld3hvMDFxbzMwbW4yNGk2c3NybiJ9.n6nnx-xBKBI_1jxp3fxZaA';
 class Brewery extends React.Component {
   render() {
     const brewery = this.props.location.state;
-    console.log(this.props.location.state);
     return (
       <>
-        <p>brewery page</p>
         <div className="card">
           <div className="card-title center">{brewery.name}</div>
           <div className="card-content center">
