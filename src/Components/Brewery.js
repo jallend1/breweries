@@ -3,6 +3,13 @@ import Map from './Map';
 
 class Brewery extends React.Component {
   render() {
+    const formatPhone = (phone) => {
+      // Ensures there is actually a phone number of proper length, and then returns a formatted one
+      const match = phone.match(/(\d{3})(\d{3})(\d{4})/);
+      if (match) {
+        return `(${match[1]}) ${match[2]}-${match[3]}`;
+      }
+    };
     const brewery = this.props.location.state;
     return (
       <>
@@ -22,10 +29,9 @@ class Brewery extends React.Component {
             </div>
             <a href={brewery.website_url}>{brewery.website_url}</a>
             <p>
-              <strong>Phone Number:</strong>
-              {brewery.phone}
+              <strong>Phone Number: </strong>
+              {formatPhone(brewery.phone)}
             </p>
-            <p>Brewery ID: {brewery.id}</p>
             <div>
               <Map latitude={brewery.latitude} longitude={brewery.longitude} />
             </div>
