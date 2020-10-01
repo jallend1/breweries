@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { formatPhone } from '../utils';
+import CardContent from './CardContent';
 
 class BreweryCard extends React.Component {
   render() {
@@ -17,28 +17,7 @@ class BreweryCard extends React.Component {
               {this.props.brewery.name}
             </Link>
           </div>
-          <div className="card-content center">
-            <div className="location">
-              <p>
-                <strong>Location:</strong> {this.props.brewery.city},{' '}
-                {this.props.brewery.state}
-              </p>
-              <p>
-                <strong>Street address:</strong> {this.props.brewery.street}
-              </p>
-              <p>
-                <strong>ZIP Code:</strong> {this.props.brewery.postal_code}
-              </p>
-            </div>
-            <a href={this.props.brewery.website_url}>
-              {this.props.brewery.website_url}
-            </a>
-            <p>
-              <strong>Phone Number: </strong>
-              {formatPhone(this.props.brewery.phone)}
-            </p>
-            <p>Brewery ID: {this.props.brewery.id}</p>
-          </div>
+          <CardContent brewery={this.props.brewery} />
         </div>
       </>
     );

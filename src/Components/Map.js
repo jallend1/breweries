@@ -5,11 +5,11 @@ import { token } from '../token';
 class Map extends React.Component {
   state = {
     viewport: {
-      width: 400,
+      width: 300,
       height: 400,
       latitude: parseFloat(this.props.latitude),
       longitude: parseFloat(this.props.longitude),
-      zoom: 12
+      zoom: 13
     }
   };
   render() {
