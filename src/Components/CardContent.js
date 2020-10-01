@@ -2,6 +2,11 @@ import React from 'react';
 import { formatPhone } from '../utils';
 
 const CardContent = ({ brewery }) => {
+  //Converts state names that have spaces into hyphens to correspond with the filename structure
+  let stateURL = brewery.state;
+  if (brewery.state && brewery.state.includes(' ')) {
+    stateURL = brewery.state.replace(' ', '-');
+  }
   return (
     <div className="card-content brewerycard">
       <div className="details">
@@ -24,7 +29,7 @@ const CardContent = ({ brewery }) => {
       </div>
       <div className="statelogo">
         <img
-          src={`../images/states/${brewery.state}.png`}
+          src={`../images/states/${stateURL}.png`}
           alt={`Outline of ${brewery.state}`}
         />
       </div>
