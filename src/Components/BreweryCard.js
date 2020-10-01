@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { formatPhone } from '../utils';
 
 class BreweryCard extends React.Component {
   render() {
@@ -33,8 +34,8 @@ class BreweryCard extends React.Component {
               {this.props.brewery.website_url}
             </a>
             <p>
-              <strong>Phone Number:</strong>
-              {this.props.brewery.phone}
+              <strong>Phone Number: </strong>
+              {formatPhone(this.props.brewery.phone)}
             </p>
             <p>Brewery ID: {this.props.brewery.id}</p>
           </div>
