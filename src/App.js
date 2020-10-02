@@ -4,7 +4,7 @@ import NavBar from './Components/NavBar';
 import Filters from './Components/Filters';
 import BreweryCard from './Components/BreweryCard';
 import Brewery from './Components/Brewery';
-
+import Home from './Components/Home';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -69,7 +69,7 @@ class App extends React.Component {
               render={(props) => <Brewery {...props} />}
             ></Route>
             <Route exact path="/">
-              <p>Home Page!</p>
+              <Home />
             </Route>
           </main>
         </div>
