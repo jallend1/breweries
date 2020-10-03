@@ -43,7 +43,6 @@ class App extends React.Component {
     e.preventDefault();
   };
 
-  searchBreweries() {}
   render() {
     return (
       <BrowserRouter>
@@ -58,11 +57,13 @@ class App extends React.Component {
           </header>
           <main>
             <Route exact path="/breweries">
-              {this.state.breweries.length
-                ? this.state.breweries.map((brewery) => (
-                    <BreweryCard brewery={brewery} key={brewery.id} />
-                  ))
-                : null}
+              {this.state.breweries.length ? (
+                this.state.breweries.map((brewery) => (
+                  <BreweryCard brewery={brewery} key={brewery.id} />
+                ))
+              ) : (
+                <p>Loading breweries...</p>
+              )}
             </Route>
             <Route
               path="/breweries/:id"

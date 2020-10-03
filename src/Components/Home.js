@@ -11,7 +11,6 @@ const Home = () => {
           <h4>"I like beer."</h4>
           <footer>
             -- Brett Kavanaugh, Supreme Court Justice of the United States
-            deeply embarrassing himself before an entire nation.
           </footer>
         </blockquote>
         <p>

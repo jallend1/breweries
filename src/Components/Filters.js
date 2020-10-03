@@ -1,5 +1,5 @@
-import React from "react";
-
+import React from 'react';
+// TODO Now that I got image files for each state, run through the image directory to render out Select options instead of hardcoding
 const Filters = (props) => {
   return (
     <>
@@ -14,6 +14,7 @@ const Filters = (props) => {
           ></input>
           <label className="label-icon active"></label>
         </div>
+
         {/* <div className="input-field">
           <span>
             <label htmlFor="state">Limit to State</label>
