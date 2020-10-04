@@ -44,6 +44,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log('../images');
     return (
       <BrowserRouter>
         <div className="container">
