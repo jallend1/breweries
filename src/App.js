@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Filters from './Components/Filters';
-import BreweryCard from './Components/BreweryCard';
-import Brewery from './Components/Brewery';
 import Home from './Components/Home';
+import Brewery from './Components/Brewery';
+import Breweries from './Components/Breweries';
+import States from './Components/States';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +45,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log('../images');
     return (
       <BrowserRouter>
         <div className="container">
@@ -57,21 +57,20 @@ class App extends React.Component {
             />
           </header>
           <main>
-            <Route exact path="/breweries">
-              {this.state.breweries.length ? (
-                this.state.breweries.map((brewery) => (
-                  <BreweryCard brewery={brewery} key={brewery.id} />
-                ))
-              ) : (
-                <p>Loading breweries...</p>
+            <Route
+              exact
+              path="/breweries"
+              render={(props) => (
+                <Breweries {...props} breweries={this.state.breweries} />
               )}
-            </Route>
+            />
             <Route
               path="/breweries/:id"
               render={(props) => <Brewery {...props} />}
-            ></Route>
+            />
+            <Route path="/states" component={States} />
             <Route exact path="/">
-              <Home />
+              {this.state.search ? <Redirect to="/breweries" /> : <Home />}
             </Route>
           </main>
         </div>
