@@ -4,7 +4,6 @@ const States = () => {
   const states = [
     'Alabama',
     'Alaska',
-    'American Samoa',
     'Arizona',
     'Arkansas',
     'California',
@@ -12,10 +11,8 @@ const States = () => {
     'Connecticut',
     'Delaware',
     'District of Columbia',
-    'Federated States of Micronesia',
     'Florida',
     'Georgia',
-    'Guam',
     'Hawaii',
     'Idaho',
     'Illinois',
@@ -25,7 +22,6 @@ const States = () => {
     'Kentucky',
     'Louisiana',
     'Maine',
-    'Marshall Islands',
     'Maryland',
     'Massachusetts',
     'Michigan',
@@ -41,13 +37,10 @@ const States = () => {
     'New York',
     'North Carolina',
     'North Dakota',
-    'Northern Mariana Islands',
     'Ohio',
     'Oklahoma',
     'Oregon',
-    'Palau',
     'Pennsylvania',
-    'Puerto Rico',
     'Rhode Island',
     'South Carolina',
     'South Dakota',
@@ -55,7 +48,6 @@ const States = () => {
     'Texas',
     'Utah',
     'Vermont',
-    'Virgin Island',
     'Virginia',
     'Washington',
     'West Virginia',
@@ -63,11 +55,15 @@ const States = () => {
     'Wyoming'
   ];
   return states.map((state) => {
+    let url;
+    state.includes(' ')
+      ? (url = `images/states/${state.replaceAll(' ', '-').toLowerCase()}.png`)
+      : (url = `./images/states/${state.toLowerCase()}.png`);
     return (
       <>
         <div>
           <p>{state}</p>
-          <img src={`./images/states/${state.toLowerCase()}.png`} alt={state} />
+          <img src={url} alt={state} />
         </div>
       </>
     );
