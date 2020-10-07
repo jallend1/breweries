@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const States = () => {
   const states = [
@@ -54,20 +54,35 @@ const States = () => {
     'Wisconsin',
     'Wyoming'
   ];
-  return states.map((state) => {
-    let url;
-    state.includes(' ')
-      ? (url = `images/states/${state.replaceAll(' ', '-').toLowerCase()}.png`)
-      : (url = `./images/states/${state.toLowerCase()}.png`);
-    return (
-      <>
-        <div>
-          <p>{state}</p>
+  const [activeState, setActiveState] = useState('all');
+
+  const renderStates = () => {
+    return states.map((state) => {
+      console.log(activeState);
+      let url;
+      state.includes(' ')
+        ? (url = `images/states/${state
+            .replaceAll(' ', '-')
+            .toLowerCase()}.png`)
+        : (url = `./images/states/${state.toLowerCase()}.png`);
+      return (
+        <div key={state} className="state">
+          <h5
+            onClick={(e) => setActiveState(e.target.textContent.toLowerCase())}
+          >
+            {state}
+          </h5>
           <img src={url} alt={state} />
         </div>
-      </>
-    );
-  });
+      );
+    });
+  };
+
+  return (
+    <>
+      <div className="statelist">{renderStates()}</div>
+    </>
+  );
 };
 
 export default States;

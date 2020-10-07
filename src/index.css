@@ -20,3 +20,22 @@ code {
 .details {
   flex: 2;
 }
+
+.statelist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.state {
+  width: 200px;
+  text-align: center;
+  margin: 2em 1em;
+}
+
+.state img {
+  max-width: 90%;
+}
+
+h5 {
+  margin-bottom: 2em;
+}
