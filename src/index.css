@@ -36,6 +36,14 @@ code {
   max-width: 90%;
 }
 
+.usmap {
+  text-align: center;
+  padding: 1.25em 0;
+}
+.usmap img {
+  max-width: 30%;
+}
+
 h5 {
   margin-bottom: 2em;
 }

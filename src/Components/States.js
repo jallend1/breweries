@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import BreweryCard from './BreweryCard';
 const States = () => {
   const states = [
-    'All',
     'Alabama',
     'Alaska',
     'Arizona',
@@ -82,9 +81,21 @@ const States = () => {
     }
     // If everything matches up, display them breweries
     else {
-      return breweries.map((brewery) => (
-        <BreweryCard brewery={brewery} key={brewery.id} />
-      ));
+      return (
+        <>
+          <figure className="usmap">
+            <img
+              src="./images/all.png"
+              alt="United States map"
+              onClick={() => setActiveState('all')}
+            />
+            <figcaption>Click to go back to state list</figcaption>
+          </figure>
+          {breweries.map((brewery) => (
+            <BreweryCard brewery={brewery} key={brewery.id} />
+          ))}
+        </>
+      );
     }
   };
   const renderStates = () => {
