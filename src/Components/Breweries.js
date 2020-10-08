@@ -1,7 +1,6 @@
 import React from 'react';
 import BreweryCard from './BreweryCard';
 const Breweries = (props) => {
-  console.log(props);
   return (
     <>
       {props.breweries.length ? (

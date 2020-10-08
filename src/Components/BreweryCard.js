@@ -1,6 +1,3 @@
-// TODO: Does not display DC outline properly on Brewery Cards
-// TODO: Add map of entire US as default for  "all"
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CardContent from './CardContent';

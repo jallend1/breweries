@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavBar = (props) => {
+const NavBar = () => {
   return (
     <>
       <nav>
-        <div className="nav-wrapper">
-          <ul className="center">
+        <div className="nav-wrapper green darken-1 ">
+          <ul className="navbaritems">
             <li>
               <NavLink to="/">Home</NavLink>
             </li>

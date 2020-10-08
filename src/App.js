@@ -1,3 +1,5 @@
+// TODO: Filter bar should search states on state page; Does nothing presently
+
 import React from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import NavBar from './Components/NavBar';
@@ -11,8 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       breweries: [],
-      search: '',
-      state: 'All'
+      search: ''
     };
   }
   componentDidMount() {
@@ -47,9 +48,9 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container">
+        <div className="container ">
           <header className="center">
-            <h1>Breweries</h1>
+            <h1>Brewery Finder 1.0</h1>
             <NavBar />
             <Filters
               handleSearch={this.handleSearch}
@@ -68,8 +69,18 @@ class App extends React.Component {
               path="/breweries/:id"
               render={(props) => <Brewery {...props} />}
             />
-            <Route path="/states" component={States} />
+            <Route
+              path="/states"
+              render={(props) => (
+                <States
+                  {...props}
+                  handleSearch={this.handleSearch}
+                  handleSubmit={this.handleSubmit}
+                />
+              )}
+            />
             <Route exact path="/">
+              {/* If the search field is blank, show home. Otherwise redirect to the breweries results page */}
               {this.state.search ? <Redirect to="/breweries" /> : <Home />}
             </Route>
           </main>

@@ -1,5 +1,3 @@
-// TODO: Add button or other identifier to click to expand; Make state image bigger on hover?
-
 import React, { useState } from 'react';
 import BreweryCard from './BreweryCard';
 const States = () => {
